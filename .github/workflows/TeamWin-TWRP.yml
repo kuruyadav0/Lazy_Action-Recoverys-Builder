@@ -127,6 +127,9 @@ jobs:
     - name: Extracting variables from .mk file
       run: |
         cd android-recovery/device_tree
+        if [ -f 'prebuilt/kernel.zip' ]; then
+        unzip -p 'prebuilt/kernel.zip' 'kernel' > 'prebuilt/kernel'
+        fi
         # Initialize variables
         DEVICE_MAKEFILE=""
         DEVICE_DIRECTORY=""
